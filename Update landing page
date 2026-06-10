@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAIHO91 Official</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    text-align:center;
+}
+
+header{
+    background:#111;
+    padding:15px;
+}
+
+.logo{
+    width:180px;
+}
+
+.hero{
+    padding:20px;
+}
+
+.hero img{
+    width:100%;
+    max-width:900px;
+    border-radius:15px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-top:20px;
+    color:#ff2ea6;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#ff2ea6;
+    color:white;
+    padding:15px 35px;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.btn:hover{
+    background:#ff4db5;
+}
+
+.section{
+    padding:60px 20px;
+}
+
+.section h2{
+    margin-bottom:25px;
+    color:#ff2ea6;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.feature-box{
+    background:#111;
+    padding:20px;
+    width:250px;
+    border-radius:10px;
+}
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.games img{
+    width:100%;
+    border-radius:15px;
+}
+
+.avatar{
+    width:250px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#111;
+    padding:20px;
+    margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="JAIHO91 Logo" class="logo">
+</header>
+
+<section class="hero">
+    <img src="hero-banner.png" alt="Hero Banner">
+
+    <h1>JAIHO91 OFFICIAL</h1>
+
+    <p>Your Trusted Gaming Community</p>
+
+    <a href="https://facebook.com/Jaiho91Officiall"
+       target="_blank"
+       class="btn">
+       JOIN NOW
+    </a>
+</section>
+
+<section class="section">
+    <h2>WHY CHOOSE JAIHO91</h2>
+
+    <div class="features">
+
+        <div class="feature-box">
+            ⚡ Fast Access
+        </div>
+
+        <div class="feature-box">
+            🔒 Secure Platform
+        </div>
+
+        <div class="feature-box">
+            🎮 Multiple Games
+        </div>
+
+        <div class="feature-box">
+            📱 Mobile Friendly
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>FEATURED GAMES</h2>
+
+    <div class="games">
+
+        <img src="power-of-kraken.png" alt="Power of Kraken">
+
+        <img src="fortune-tiger.png" alt="Fortune Tiger">
+
+        <img src="ganesha-fortune.jpg" alt="Ganesha Fortune">
+
+        <img src="jungle-fortune.png" alt="Jungle Fortune">
+
+    </div>
+</section>
+
+<section class="section">
+
+    <img src="avatar.png" alt="JAIHO91 Avatar" class="avatar">
+
+    <h2>ABOUT JAIHO91</h2>
+
+    <p>
+        Experience exciting games, active community support,
+        and exclusive updates with JAIHO91.
+    </p>
+
+</section>
+
+<section class="section">
+
+    <h2>JOIN OUR COMMUNITY</h2>
+
+    <a href="https://facebook.com/Jaiho91Officiall"
+       target="_blank"
+       class="btn">
+       VISIT FACEBOOK
+    </a>
+
+</section>
+
+<footer>
+    © 2026 JAIHO91. All Rights Reserved.
+</footer>
+
+</body>
+</html>
