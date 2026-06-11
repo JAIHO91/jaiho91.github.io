@@ -31,6 +31,16 @@
         0 0 10px #ffd700,
         0 0 20px #ffd700;
 }
+.bonus-card{
+    transition:all .3s ease;
+}
+
+.bonus-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 0 30px rgba(255,0,128,.6),
+        0 0 80px rgba(255,215,0,.3);
+}
 
 .claim-btn{
     width:100%;
@@ -87,6 +97,9 @@ linear-gradient(
 color:white;
 overflow-x:hidden;
 }
+.games{
+    margin-top:-20px;
+}
 
 /* HERO */
 
@@ -115,8 +128,9 @@ overflow-x:hidden;
     
 .bonus-card{
     position:relative;
-    margin:-40px auto 30px;
-    width:min(90%,380px);
+    top:-80px;
+    margin:0 auto;
+}
 
     background:rgba(255,255,255,.08);
 
