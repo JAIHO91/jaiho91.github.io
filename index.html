@@ -282,6 +282,37 @@ text-align:center;
 font-size:24px;
 }
 
+.stats{
+    max-width:1200px;
+    margin:50px auto;
+    padding:20px;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+.stat{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,0,128,.3);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.stat h2{
+    color:#ffd700;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.stat p{
+    color:white;
+}
+
 /* FEATURES */
 
 .features{
@@ -466,7 +497,7 @@ border-top:1px solid rgba(255,255,255,.1);
 
 <div class="bonus-card">
 
-    <span ="close-bonus">&times;</span>
+    <span class="close-bonus">&times;</span>
 
     <h2>🎁 Welcome Bonus</h2>
 
@@ -498,7 +529,7 @@ border-top:1px solid rgba(255,255,255,.1);
 
 <h2 class="section-title">Featured Games</h2>
 
-<div class="game-card">
+<div class="games">
 
 <div class="game-card">
 <img src="powerbro.png" alt="Power Of Kraken">
@@ -519,6 +550,8 @@ border-top:1px solid rgba(255,255,255,.1);
 <img src="junglebro.png" alt="Jungle Fortune">
 <h3>Jungle Fortune</h3>
 </div>
+
+</div>    
 
 <div class="stats">
 
