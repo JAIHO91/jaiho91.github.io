@@ -294,34 +294,25 @@ box-shadow:
     position:fixed;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%) scale(.8);
+    transform:translate(-50%,-50%);
 
-    width:360px;
-    padding:90px 20px 25px;
+    width:380px;
+
+    padding:220px 25px 25px;
 
     background:
-        radial-gradient(circle at 30% 20%, rgba(255,215,0,.25), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(255,0,128,.25), transparent 45%),
-        linear-gradient(135deg, #1a002b, #2b004d, #1a0033);
+        linear-gradient(
+            rgba(20,0,40,.2),
+            rgba(20,0,40,.95)
+        ),
+        url('popup1.png');
 
-    border:1px solid rgba(255,215,0,.4);
+    background-size:cover;
+    background-position:center top;
 
-    border-radius:28px;
-    overflow:visible;
-
-    backdrop-filter:blur(20px);
+    border-radius:30px;
 
     text-align:center;
-    z-index:9999;
-
-    opacity:0;
-    pointer-events:none;
-
-    transition:.3s ease;
-
-    box-shadow:
-        0 0 30px rgba(255,0,128,.4),
-        0 0 80px rgba(255,215,0,.2);
 }
     
 .bonus-amount{
@@ -361,28 +352,6 @@ box-shadow:
     opacity:1;
     transform:translate(-50%,-50%) scale(1);
     pointer-events:auto;
-}
-
-.pilot-image{
-    position:absolute;
-    top:-60px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.pilot-image img{
-    width:120px;
-    height:120px;
-    object-fit:cover;
-
-    display:block;
-
-    border-radius:50%;
-    border:3px solid #ffd700;
-
-    box-shadow:
-        0 0 15px rgba(255,215,0,.8),
-        0 0 35px rgba(255,215,0,.5);
 }
 
 /* TITLES */
@@ -685,9 +654,6 @@ border-top:1px solid rgba(255,255,255,.1);
     <span class="close-bonus">&times;</span>
 
     <!-- pilot-image -->
-    <div class="pilot-image">
-        <img src="popup1.png" alt="Pilot Woman">
-    </div>
 
     <!-- VIP TAG -->
     <div class="vip-tag">
