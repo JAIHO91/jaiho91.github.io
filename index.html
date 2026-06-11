@@ -297,7 +297,7 @@ box-shadow:
     transform:translate(-50%,-50%) scale(.8);
 
     width:360px;
-    padding:70px 20px 25px;
+    padding:90px 20px 25px;
 
     background:
         radial-gradient(circle at 30% 20%, rgba(255,215,0,.25), transparent 40%),
@@ -357,20 +357,26 @@ box-shadow:
     pointer-events:auto;
 }
 
-.popup-bonus.show{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-    pointer-events:auto;
+.pilot-image{
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform:translateX(-50%);
 }
-    
-pilot-image
-    
-    .vip-tag{
-    color:#ffd700;
-    font-size:12px;
-    letter-spacing:4px;
-    font-weight:700;
-    margin-bottom:10px;
+
+.pilot-image img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:50%;
+    border:3px solid #ffd700;
+
+    box-shadow:
+        0 0 15px rgba(255,215,0,.8),
+        0 0 35px rgba(255,215,0,.5);
 }
 
 /* TITLES */
