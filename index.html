@@ -275,49 +275,56 @@ box-shadow:
 
     /* BONUS CARD */
     
-.bonus-card{
+/* OVERLAY */
+.bonus-overlay{
     position:fixed;
-    bottom:20px;
-    right:20px;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+    z-index:9998;
 
-    width:220px;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s ease;
+}
+
+/* POPUP CENTER */
+.popup-bonus{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(.8);
+
+    width:320px;
+    padding:20px;
 
     background:rgba(20,0,40,.95);
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,215,0,.3);
-    border-radius:18px;
-
-    padding:12px;
-
-    z-index:9999;
+    border:1px solid rgba(255,215,0,.4);
+    border-radius:20px;
 
     text-align:center;
+    z-index:9999;
 
-    transition:all .3s ease;
-    animation:popupIn .5s ease;
+    opacity:0;
+    pointer-events:none;
+
+    transition:.3s ease;
 
     box-shadow:
-        0 0 15px rgba(255,0,128,.4),
-        0 0 30px rgba(255,215,0,.2);
-}
-.bonus-card h2{
-    font-size:20px;
+        0 0 30px rgba(255,0,128,.4),
+        0 0 80px rgba(255,215,0,.2);
 }
 
-.bonus-amount{
-    font-size:30px;
-    margin:8px 0;
+/* SHOW STATE */
+.bonus-overlay.show{
+    opacity:1;
+    pointer-events:auto;
 }
 
-.bonus-body li{
-    padding:5px 0;
-    font-size:13px;
-}
-
-.claim-btn{
-    padding:10px;
-    font-size:14px;
+.popup-bonus.show{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+    pointer-events:auto;
 }
 
 /* TITLES */
@@ -622,30 +629,29 @@ border-top:1px solid rgba(255,255,255,.1);
 
 </section>
 
-<div class="bonus-card">
+<!-- OVERLAY -->
+<div class="bonus-overlay"></div>
 
+<!-- popup-bonus -->
+<div class="popup-bonus">
+    
     <span class="close-bonus">&times;</span>
 
     <h2>🎁 Welcome Bonus</h2>
 
-    <div class="bonus-amount">
-        ₹10,000
-    </div>
+    <div class="bonus-amount">₹10,000</div>
 
-    <div class="bonus-body">
-        <ul>
-            <li>✅ VIP Rewards</li>
-            <li>✅ 24/7 Support</li>
-        </ul>
+    <ul>
+        <li>✅ VIP Rewards</li>
+        <li>✅ 24/7 Support</li>
+        <li>🔥 Instant Access</li>
+    </ul>
 
-<a href="https://www.instagram.com/jaiho91officiall/"
-   target="_blank"
-   class="claim-btn"
-   onclick="document.querySelector('.bonus-card').style.display='none';">
-    Claim Now
-</a>
-    </div>
-
+    <a href="https://www.instagram.com/jaiho91officiall/"
+       target="_blank"
+       class="claim-btn">
+        Claim Now
+    </a>
 </div>
 
 <!-- GAMES -->
@@ -759,10 +765,32 @@ Get updates, promotions and connect with fellow members.
 <footer>
 © 2026 JAIHO91 Official
 </footer>
+    
 <script>
-document.querySelector('.close-bonus').addEventListener('click', function() {
-    document.querySelector('.bonus-card').style.display = 'none';
+const modal = document.querySelector('.popup-bonus');
+const overlay = document.querySelector('.bonus-overlay');
+const closeBtn = document.querySelector('.close-bonus');
+
+// Auto show popup when website loads
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        modal.classList.add('show');
+        overlay.classList.add('show');
+    }, 500);
 });
+
+// Close popup when clicking X button
+closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
+// Close popup when clicking outside (overlay)
+overlay.addEventListener('click', () => {
+    modal.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
 </script>
 </body>
 </html>
