@@ -296,50 +296,30 @@ box-shadow:
     left:50%;
     transform:translate(-50%,-50%);
 
-    width:380px;
+    width:320px;
 
-    padding:220px 25px 25px;
-
-    background:
-        linear-gradient(
-            rgba(20,0,40,.2),
-            rgba(20,0,40,.95)
-        ),
-        url('popup1.png');
-
-    background-size:cover;
-    background-position:center top;
-
-    border-radius:30px;
+    background:none;
+    border:none;
+    box-shadow:none;
 
     text-align:center;
-}
-    
-.bonus-amount{
-    font-size:40px;
-    font-weight:bold;
-    color:#ffd700;
 
-    text-shadow:
-        0 0 10px #ffd700,
-        0 0 25px #ffcc00;
-
-    animation: pulseGold 1.8s infinite ease-in-out;
+    z-index:9999;
 }
 
-@keyframes pulseGold{
-    0%{
-        transform:scale(1);
-        text-shadow:0 0 10px #ffd700;
-    }
-    50%{
-        transform:scale(1.08);
-        text-shadow:0 0 25px #ffd700, 0 0 40px #ffcc00;
-    }
-    100%{
-        transform:scale(1);
-        text-shadow:0 0 10px #ffd700;
-    }
+.popup-pilot{
+    width:100%;
+    display:block;
+
+    filter:
+        drop-shadow(0 0 20px #ffd700)
+        drop-shadow(0 0 50px #ff0080);
+}
+
+.popup-content{
+    margin-top:-60px;
+
+    padding:15px;
 }
 
 /* SHOW STATE */
@@ -645,36 +625,30 @@ border-top:1px solid rgba(255,255,255,.1);
 
 </section>
 
-<!-- OVERLAY -->
-<div class="bonus-overlay"></div>
-
-<!-- popup-bonus -->
 <div class="popup-bonus">
 
     <span class="close-bonus">&times;</span>
 
-    <!-- pilot-image -->
+    <img src="popup1.png" class="popup-pilot">
 
-    <!-- VIP TAG -->
-    <div class="vip-tag">
-        VIP MEMBER
+    <div class="popup-content">
+
+        <div class="vip-tag">
+            VIP MEMBER
+        </div>
+
+        <h2>🎁 Welcome Bonus</h2>
+
+        <div class="bonus-amount">
+            ₹10,000
+        </div>
+
+        <a href="#"
+           class="claim-btn">
+           Claim Now
+        </a>
+
     </div>
-
-    <h2>🎁 Welcome Bonus</h2>
-
-    <div class="bonus-amount">₹10,000</div>
-
-    <ul>
-        <li>✅ VIP Rewards</li>
-        <li>✅ 24/7 Support</li>
-        <li>🔥 Instant Access</li>
-    </ul>
-
-    <a href="https://www.instagram.com/jaiho91officiall/"
-       target="_blank"
-       class="claim-btn">
-        Claim Now
-    </a>
 
 </div>
 
