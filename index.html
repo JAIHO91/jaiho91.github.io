@@ -16,13 +16,12 @@ font-family:Arial,sans-serif;
 }
 
 body{
-
 background:
-radial-gradient(circle at top,
-rgba(255,0,140,0.25),
+radial-gradient(circle at top left,
+rgba(255,0,128,0.25),
 transparent 35%),
 
-radial-gradient(circle at bottom,
+radial-gradient(circle at bottom right,
 rgba(255,215,0,0.15),
 transparent 40%),
 
@@ -40,71 +39,56 @@ overflow-x:hidden;
 /* HERO */
 
 .hero{
-    width:95%;
-    max-width:none;
-    margin:20px auto;
+width:100%;
+padding:20px;
 }
 
 .hero img{
-    width:100%;
-    max-width:1920px;
-    border-radius:20px;
-    box-shadow:
-        0 0 25px rgba(255,0,128,.5),
-        0 0 50px rgba(255,215,0,.15);
-}
+width:100%;
+display:block;
+border-radius:25px;
+box-shadow:
+0 0 25px rgba(255,0,128,.5),
+0 0 50px rgba(255,215,0,.2);
 }
 
-/* SECTION TITLE */
+/* TITLES */
 
 .section-title{
 text-align:center;
-font-size:40px;
-font-weight:bold;
+font-size:42px;
 margin:60px 0 30px;
-color:#fff;
+color:white;
 text-shadow:
 0 0 10px #ff0080,
 0 0 20px #ff0080;
 }
 
-/* GAME GRID */
+/* GAMES */
 
 .games{
+max-width:1400px;
+margin:auto;
+padding:20px;
 
 display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(250px,1fr));
 
 gap:25px;
-
-padding:20px;
-max-width:1300px;
-margin:auto;
 }
 
 .game-card{
-
 background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,0,140,.4);
-
+border:1px solid rgba(255,0,128,.3);
 border-radius:20px;
-
 overflow:hidden;
-
 transition:.3s;
-
 backdrop-filter:blur(10px);
-
-box-shadow:
-0 0 15px rgba(255,0,140,.15);
 }
 
 .game-card:hover{
-
 transform:translateY(-8px);
-
 box-shadow:
 0 0 20px #ff0080,
 0 0 40px rgba(255,215,0,.3);
@@ -112,63 +96,49 @@ box-shadow:
 
 .game-card img{
 width:100%;
+height:250px;
+object-fit:cover;
 display:block;
 }
 
 .game-card h3{
-padding:15px;
+padding:18px;
 text-align:center;
-font-size:22px;
+font-size:24px;
 }
 
 /* FEATURES */
 
 .features{
+max-width:1300px;
+margin:auto;
+padding:20px;
 
 display:grid;
-
 grid-template-columns:
 repeat(auto-fit,minmax(250px,1fr));
 
 gap:25px;
-
-padding:20px;
-
-max-width:1200px;
-
-margin:auto;
 }
 
 .feature{
-
 background:rgba(255,255,255,.05);
-
 padding:30px;
-
 border-radius:20px;
-
-border:1px solid rgba(255,0,140,.3);
-
+border:1px solid rgba(255,0,128,.3);
 text-align:center;
-
-box-shadow:
-0 0 15px rgba(255,0,140,.15);
 }
 
 .feature h3{
-
 color:#ffd700;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 /* COMMUNITY */
 
 .community{
-
 max-width:1000px;
-
 margin:70px auto;
-
 padding:40px 20px;
 
 text-align:center;
@@ -177,19 +147,17 @@ background:rgba(255,255,255,.05);
 
 border-radius:25px;
 
-border:1px solid rgba(255,0,140,.3);
+border:1px solid rgba(255,0,128,.3);
 
 box-shadow:
 0 0 20px rgba(255,0,128,.2);
 }
 
 .community img{
-
 width:180px;
 height:180px;
-
 border-radius:50%;
-
+object-fit:cover;
 margin-bottom:20px;
 
 box-shadow:
@@ -197,21 +165,16 @@ box-shadow:
 }
 
 .community h2{
-
-font-size:40px;
-
+font-size:42px;
 margin-bottom:15px;
 }
 
 .community p{
-
 font-size:18px;
-
 margin-bottom:25px;
 }
 
 .btn{
-
 display:inline-block;
 
 padding:16px 40px;
@@ -224,84 +187,70 @@ linear-gradient(
 );
 
 color:white;
-
 text-decoration:none;
-
 font-weight:bold;
-
 font-size:20px;
 
 border-radius:50px;
 
-box-shadow:
-0 0 20px rgba(255,0,128,.5);
+transition:.3s;
 }
 
 .btn:hover{
-
 transform:scale(1.05);
 }
 
 /* FOOTER */
 
 footer{
-
 text-align:center;
-
 padding:30px;
-
 margin-top:50px;
-
 border-top:1px solid rgba(255,255,255,.1);
 }
 
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
 
 <section class="hero">
-
-<img src="lizard1.png" alt="JAIHO91 Banner">
-
+<img src="hero-banner.png" alt="JAIHO91 Banner">
 </section>
 
 <!-- GAMES -->
 
-<h2 class="section-title">
-Featured Games
-</h2>
+<h2 class="section-title">Featured Games</h2>
 
 <div class="games">
 
 <div class="game-card">
-<img src="powerbro.png">
+<img src="powerbro.png" alt="Power Of Kraken">
 <h3>Power Of Kraken</h3>
 </div>
 
 <div class="game-card">
-<img src="fortune-tiger.png">
+<img src="fortune-tiger.png" alt="Fortune Tiger">
 <h3>Fortune Tiger</h3>
 </div>
 
 <div class="game-card">
-<img src="ganeshabro.jpg">
+<img src="ganeshabro.jpg" alt="Ganesha Fortune">
 <h3>Ganesha Fortune</h3>
 </div>
 
 <div class="game-card">
-<img src="junglebro.png">
+<img src="junglebro.png" alt="Jungle Fortune">
 <h3>Jungle Fortune</h3>
 </div>
 
 </div>
 
-<!-- WHY US -->
+<!-- WHY CHOOSE -->
 
-<h2 class="section-title">
-Why Choose JAIHO91?
-</h2>
+<h2 class="section-title">Why Choose JAIHO91?</h2>
 
 <div class="features">
 
@@ -331,7 +280,7 @@ Why Choose JAIHO91?
 
 <div class="community">
 
-<img src="avatar.png" alt="Avatar">
+<img src="avatar.png" alt="JAIHO91 Avatar">
 
 <h2>Join Our Community</h2>
 
@@ -343,17 +292,13 @@ Get updates, promotions and connect with fellow members.
 href="https://facebook.com/Jaiho91Officiall"
 target="_blank"
 class="btn">
-
 JOIN FACEBOOK
-
 </a>
 
 </div>
 
 <footer>
-
 © 2026 JAIHO91 Official
-
 </footer>
 
 </body>
