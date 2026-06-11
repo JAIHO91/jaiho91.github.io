@@ -298,10 +298,13 @@ box-shadow:
     width:320px;
     padding:20px;
 
-    background:rgba(20,0,40,.95);
-    border:1px solid rgba(255,215,0,.4);
-    border-radius:20px;
+background:
+        radial-gradient(circle at 30% 20%, rgba(255,215,0,.25), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,128,.25), transparent 45%),
+        linear-gradient(135deg, #1a002b, #2b004d, #1a0033);
 
+    border:1px solid rgba(255,215,0,.4);
+    backdrop-filter: blur(20px);
     text-align:center;
     z-index:9999;
 
