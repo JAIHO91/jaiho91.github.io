@@ -88,6 +88,23 @@ border-radius:20px;
 overflow:hidden;
 transition:.3s;
 backdrop-filter:blur(10px);
+
+animation:floatCard 3s ease-in-out infinite;
+}
+.game-card:nth-child(1){
+animation-delay:0s;
+}
+
+.game-card:nth-child(2){
+animation-delay:.5s;
+}
+
+.game-card:nth-child(3){
+animation-delay:1s;
+}
+
+.game-card:nth-child(4){
+animation-delay:1.5s;
 }
 
 .game-card:hover{
@@ -179,9 +196,6 @@ box-shadow:
 transition:all .3s ease;
 }
 
-transition:all .3s ease;
-}
-
 .community img:hover{
 transform:translateY(-10px) scale(1.08) rotate(3deg);
 
@@ -256,12 +270,12 @@ box-shadow:
 }
 }
 
-@keyframes floatAvatar{
+@keyframes floatCard{
 0%{
 transform:translateY(0);
 }
 50%{
-transform:translateY(-10px);
+transform:translateY(-8px);
 }
 100%{
 transform:translateY(0);
