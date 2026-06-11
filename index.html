@@ -41,6 +41,16 @@
         0 0 30px rgba(255,0,128,.6),
         0 0 80px rgba(255,215,0,.3);
 }
+.close-bonus{
+    position:absolute;
+    top:10px;
+    right:15px;
+
+    font-size:22px;
+    cursor:pointer;
+
+    color:white;
+}
 
 .claim-btn{
     width:100%;
@@ -127,26 +137,29 @@ overflow-x:hidden;
     /* BONUS CARD */
     
 .bonus-card{
-    position:relative;
-    top:-80px;
-    margin:0 auto;
-}
+    position:fixed;
 
-    background:rgba(255,255,255,.08);
+    top:120px;
+    right:20px;
 
-    backdrop-filter:blur(12px);
+    width:280px;
+
+    background:rgba(20,0,40,.95);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,215,0,.3);
 
     border-radius:20px;
 
     padding:20px;
 
-    z-index:10;
+    z-index:9999;
+
+    box-shadow:
+        0 0 20px rgba(255,0,128,.4),
+        0 0 50px rgba(255,215,0,.2);
 
     text-align:center;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:0 10px 40px rgba(255,0,128,.3);
 }
 
 /* TITLES */
@@ -399,6 +412,9 @@ border-top:1px solid rgba(255,255,255,.1);
 </section>
 
 <div class="bonus-card">
+
+    <span class="close-bonus">&times;</span>
+
     <h2>🎁 Welcome Bonus</h2>
 
     <div class="bonus-amount">
@@ -419,6 +435,7 @@ border-top:1px solid rgba(255,255,255,.1);
             Claim Now
         </button>
     </div>
+
 </div>
 
 <!-- GAMES -->
