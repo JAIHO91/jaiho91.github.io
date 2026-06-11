@@ -356,6 +356,31 @@ background:
     transform:translate(-50%,-50%) scale(1);
     pointer-events:auto;
 }
+    
+    .pilot-image{
+    margin-top:-90px;
+    margin-bottom:10px;
+}
+
+.pilot-image img{
+    width:150px;
+    display:block;
+    margin:auto;
+
+    filter:
+    drop-shadow(0 0 15px rgba(255,215,0,.8))
+    drop-shadow(0 0 35px rgba(255,215,0,.5));
+}
+    border-radius:28px;
+overflow:visible;
+    
+    .vip-tag{
+    color:#ffd700;
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:700;
+    margin-bottom:10px;
+}
 
 /* TITLES */
 
@@ -664,8 +689,18 @@ border-top:1px solid rgba(255,255,255,.1);
 
 <!-- popup-bonus -->
 <div class="popup-bonus">
-    
+
     <span class="close-bonus">&times;</span>
+
+    <!-- popup1 -->
+    <div class="popup1">
+        <img src="popup1.png" alt="Pilot Woman">
+    </div>
+
+    <!-- VIP TAG -->
+    <div class="vip-tag">
+        VIP MEMBER
+    </div>
 
     <h2>🎁 Welcome Bonus</h2>
 
@@ -682,6 +717,7 @@ border-top:1px solid rgba(255,255,255,.1);
        class="claim-btn">
         Claim Now
     </a>
+
 </div>
 
 <!-- GAMES -->
