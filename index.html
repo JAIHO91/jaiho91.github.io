@@ -39,17 +39,24 @@ overflow-x:hidden;
 /* HERO */
 
 .hero{
-width:100%;
-padding:20px;
+    width:100%;
+    padding:40px 20px 0;
 }
 
 .hero img{
-width:100%;
-display:block;
-border-radius:25px;
-box-shadow:
-0 0 25px rgba(255,0,128,.5),
-0 0 50px rgba(255,215,0,.2);
+    width:100%;
+    border-radius:30px;
+
+    transform:translateY(0);
+    transition:.4s;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5),
+    0 0 40px rgba(255,0,128,.3);
+}
+
+.hero img:hover{
+    transform:translateY(-8px);
 }
 
 /* TITLES */
