@@ -294,7 +294,8 @@ box-shadow:
     position:fixed;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%);
+
+    transform:translate(-50%,-50%) scale(.8);
 
     width:320px;
 
@@ -305,6 +306,19 @@ box-shadow:
     text-align:center;
 
     z-index:9999;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+    
+.popup-bonus.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:translate(-50%,-50%) scale(1);
 }
 
 .popup-pilot{
@@ -356,16 +370,10 @@ box-shadow:
     opacity:1;
     pointer-events:auto;
 }
-
-.popup-bonus.show{
+ .popup-bonus.show{
     opacity:1;
     pointer-events:auto;
     transform:translate(-50%,-50%) scale(1);
-}
- .popup-bonus{
-    opacity:0;
-    pointer-events:none;
-    transition:.3s;
 }
 
 /* TITLES */
@@ -635,36 +643,6 @@ margin-top:50px;
 border-top:1px solid rgba(255,255,255,.1);
 }
     
-.gold-particle{
-    position:fixed;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#ffd700;
-    pointer-events:none;
-    z-index:99999;
-
-    box-shadow:
-        0 0 10px #ffd700,
-        0 0 20px #ffcc00;
-
-    animation:goldBurst 2.5s linear forwards;
-}
-
-@keyframes goldBurst{
-    0%{
-        opacity:1;
-        transform:translate(0,0) scale(1);
-    }
-
-    100%{
-        opacity:0;
-        transform:
-            translate(var(--x),var(--y))
-            scale(.2);
-    }
-}
-    
 </style>
 
 </head>
@@ -844,76 +822,26 @@ const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
 const closeBtn = document.querySelector('.close-bonus');
 
-// Auto show popup when website loads
+// Auto show popup
 window.addEventListener('load', () => {
     setTimeout(() => {
-
         modal.classList.add('show');
         overlay.classList.add('show');
-
-        goldExplosion(
-            window.innerWidth/2,
-            window.innerHeight/2
-        );
-
     }, 500);
 });
 
-    document.querySelector('.claim-btn')
-.addEventListener('click',function(e){
-
-    goldExplosion(
-        window.innerWidth/2,
-        window.innerHeight/2
-    );
-
-});
-
-// Close popup when clicking X button
+// Close popup X
 closeBtn.addEventListener('click', () => {
     modal.classList.remove('show');
     overlay.classList.remove('show');
 });
 
-// Close popup when clicking outside (overlay)
+// Close popup klik background
 overlay.addEventListener('click', () => {
     modal.classList.remove('show');
     overlay.classList.remove('show');
 });
 
-function goldExplosion(x,y){
-
-    for(let i=0;i<180;i++){
-
-        const p=document.createElement('div');
-        p.className='gold-particle';
-
-        p.style.left=x+'px';
-        p.style.top=y+'px';
-
-        p.style.setProperty(
-            '--x',
-            (Math.random()*800-400)+'px'
-        );
-
-        p.style.setProperty(
-            '--y',
-            (Math.random()*800-400)+'px'
-        );
-
-        document.body.appendChild(p);
-
-        setTimeout(()=>{
-            p.remove();
-        },1500);
-    }
-}
-    goldExplosion(x,y);
-
-setTimeout(()=>goldExplosion(x,y),150);
-setTimeout(()=>goldExplosion(x,y),300);
-setTimeout(()=>goldExplosion(x,y),450);
-    
 </script>
 </body>
 </html>
