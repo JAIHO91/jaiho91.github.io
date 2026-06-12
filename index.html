@@ -524,6 +524,37 @@ font-size:24px;
     animation:jackpotGlow 2s ease-in-out infinite alternate;
 }
 
+.winner-feed{
+    margin-top:15px;
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,215,0,0.3);
+    text-align:center;
+    overflow:hidden;
+}
+
+#winnerText{
+    color:#ffd700;
+    font-weight:600;
+    display:inline-block;
+    animation: winnerSlide 0.6s ease;
+}
+
+@keyframes winnerSlide{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
 /* FEATURES */
 
 .features{
@@ -879,6 +910,12 @@ border-top:1px solid rgba(255,255,255,.1);
     <h2 id="jackpot">₹1,245,872</h2>
 </div>
 
+<div class="winner-feed">
+ <span id="winnerText">
+        🎉 Rahul won ₹12,450 on Aviator
+    </span>
+</div>
+
 <!-- WHY CHOOSE -->
 
 <h2 class="section-title">Why Choose JAIHO91?</h2>
@@ -1053,6 +1090,52 @@ function animateCounter(id, target, prefix = "", suffix = "") {
 
 animateCounter("players", 50000, "", "+");
 animateCounter("rewards", 1000000, "₹", "+");
+
+const winnerNames = [
+    "Rahul",
+    "Amit",
+    "Vikram",
+    "Arjun",
+    "Sanjay",
+    "Rohit",
+    "Karan",
+    "Priya",
+    "Neha",
+    "Anjali"
+];
+
+function updateWinner(){
+
+    const name =
+        winnerNames[
+            Math.floor(Math.random() * winnerNames.length)
+        ];
+
+    const amount =
+        Math.floor(
+            Math.random() * 45000
+        ) + 5000;
+
+    const winner =
+        `🎉 ${name} won ₹${amount.toLocaleString("en-IN")} on Aviator`;
+
+    const el =
+        document.getElementById("winnerText");
+
+    el.style.animation = "none";
+
+    setTimeout(() => {
+
+        el.innerHTML = winner;
+
+        el.style.animation =
+            "winnerSlide 0.6s ease";
+
+    }, 50);
+
+}
+
+setInterval(updateWinner, 4000);
 
 </script>
 </body>
