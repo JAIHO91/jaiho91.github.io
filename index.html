@@ -924,19 +924,25 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('show');
 });
 
-/* LIVE JACKPOT */
+/* LIVE GLOBAL JACKPOT */
 
-let displayedJackpot = 546248;
+const baseJackpot = 2546248;
+
+// Tanggal mulai jackpot
+const startTime =
+new Date("2026-06-12T00:00:00").getTime();
+
+let displayedJackpot = 0;
 
 function animateValue(start, end, duration){
 
     const range = end - start;
-    const startTimeAnim = performance.now();
+    const startAnim = performance.now();
 
     function update(now){
 
         const progress =
-            Math.min((now - startTimeAnim) / duration, 1);
+            Math.min((now - startAnim) / duration, 1);
 
         const value =
             Math.floor(start + (range * progress));
@@ -954,23 +960,26 @@ function animateValue(start, end, duration){
 
 function updateJackpot(){
 
-    const increase =
-        Math.floor(Math.random() * 8) + 1;
+    const now = Date.now();
 
+    const seconds =
+        Math.floor((now - startTime) / 1000);
+
+    // naik 2 rupee per detik
     const targetJackpot =
-        displayedJackpot + increase;
+        baseJackpot + (seconds * 2);
 
     animateValue(
         displayedJackpot,
         targetJackpot,
-        1000
+        800
     );
 
     displayedJackpot = targetJackpot;
 }
 
-setInterval(updateJackpot, 4000);
 updateJackpot();
+setInterval(updateJackpot, 1000);
 
 </script>
 </body>
