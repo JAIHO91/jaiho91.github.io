@@ -1058,7 +1058,7 @@ function animateCounter(id, target, suffix = '') {
             count = target;
             clearInterval(timer);
         }
-        document.getElementById(id).textContent = count.toLocaleString() + suffix;
+        document.getElementById(id).textContent = suffix + count.toLocaleString();
     }, 20);
 }
 
