@@ -634,12 +634,36 @@ padding:30px;
 margin-top:50px;
 border-top:1px solid rgba(255,255,255,.1);
 }
+    
+.fly-plane{
+    position:fixed;
+    top:150px;
+    left:-200px;
 
+    font-size:40px;
+
+    z-index:1000;
+
+    animation:flyPlane 15s linear infinite;
+}
+
+@keyframes flyPlane{
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(calc(100vw + 400px));
+    }
+}
+    
 </style>
 
 </head>
 
 <body>
+    
+    <div class="fly-plane">✈️</div>
 
 <!-- HERO -->
 
