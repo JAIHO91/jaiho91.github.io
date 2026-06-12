@@ -1049,17 +1049,20 @@ Get updates, promotions and connect with fellow members.
     
 <script>
 // ANIMATED COUNTERS
-function animateCounter(id, target, suffix = '') {
+function animateCounter(id, target, prefix = '') {
     let count = 0;
-    const step = Math.ceil(target / 100);
+    const duration = 2000;
+    const interval = 20;
+    const steps = duration / interval;
+    const step = target / steps;
     const timer = setInterval(() => {
         count += step;
         if (count >= target) {
             count = target;
             clearInterval(timer);
         }
-        document.getElementById(id).textContent = suffix + count.toLocaleString();
-    }, 20);
+        document.getElementById(id).textContent = prefix + Math.floor(count).toLocaleString();
+    }, interval);
 }
 
 window.addEventListener('load', () => {
