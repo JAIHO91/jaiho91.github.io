@@ -926,9 +926,7 @@ overlay.addEventListener('click', () => {
 
 /* LIVE GLOBAL JACKPOT */
 
-const baseJackpot = 2546248;
-
-// Jackpot starting date
+const baseJackpot = 1046248;
 const startTime =
 new Date("2026-06-12T00:00:00").getTime();
 
@@ -960,14 +958,17 @@ function animateValue(start, end, duration){
 
 function updateJackpot(){
 
-    const now = Date.now();
-
     const seconds =
-        Math.floor((now - startTime) / 1000);
+        Math.floor((Date.now() - startTime) / 1000);
 
-    // Increase by 0.5 Rupee per second
+    // Global irregular growth
+    const growth =
+        Math.floor(seconds * 0.4) +
+        Math.floor(seconds / 30) * 3 +
+        Math.floor(seconds / 120) * 8;
+
     const targetJackpot =
-        baseJackpot + Math.floor(seconds * 0.5);
+        baseJackpot + growth;
 
     animateValue(
         displayedJackpot,
