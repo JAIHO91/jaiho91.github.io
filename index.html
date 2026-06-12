@@ -484,18 +484,31 @@ font-size:24px;
     cursor:pointer;
 }
 .jackpot-box{
+    max-width:650px;
+    margin:60px auto;
+
+    padding:30px;
+
     text-align:center;
-    margin:50px auto;
-}
 
-#jackpot{
-    font-size:60px;
-    color:#ffd700;
+    background:linear-gradient(
+        135deg,
+        rgba(255,215,0,.08),
+        rgba(255,0,128,.08)
+    );
 
-    text-shadow:
-        0 0 10px #ffd700,
-        0 0 20px #ffd700,
-        0 0 40px #ff0080;
+    border:2px solid rgba(255,215,0,.4);
+    border-radius:30px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 0 30px rgba(255,215,0,.25),
+        0 0 80px rgba(255,0,128,.15);
+
+    overflow:hidden;
+
+    position:relative;
 }
 
 /* FEATURES */
