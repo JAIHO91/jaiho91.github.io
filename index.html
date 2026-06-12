@@ -782,6 +782,65 @@ transform:translateY(0);
     }
 }
 
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9997;
+    background: rgba(30, 0, 60, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 0, 128, 0.3);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.navbar .nav-join {
+    padding: 10px 22px;
+    background: linear-gradient(45deg, #ff0080, #ffd700);
+    color: white !important;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.navbar .nav-join:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff0080;
+}
+
+/* Push page content down so navbar doesn't cover it */
+body {
+    padding-top: 70px;
+}
+
 /* FOOTER */
 
 footer{
@@ -796,7 +855,19 @@ border-top:1px solid rgba(255,255,255,.1);
 </head>
 
 <body>
-
+    
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#" class="logo">JAIHO91</a>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://jaiho91.com" target="_blank" class="nav-join">Join Now</a></li>
+    </ul>
+</nav>
+    
 <!-- HERO -->
 
 <section class="hero">
