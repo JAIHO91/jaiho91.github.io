@@ -924,16 +924,25 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('show');
 });
 
-/* JACKPOT COUNTER */
-let jackpot = 1245872;
-const jackpotEl = document.getElementById("jackpot");
+const baseJackpot = 1246248;
+const startTime = new Date("2026-01-01").getTime();
 
-setInterval(() => {
-    jackpot += Math.floor(Math.random() * 50);
+function updateJackpot() {
 
-    jackpotEl.innerHTML =
-        "₹" + jackpot.toLocaleString("en-IN");
-}, 3000);
+    const now = Date.now();
+
+    const seconds =
+        Math.floor((now - startTime) / 1000);
+
+    const currentJackpot =
+        baseJackpot + (seconds * 15);
+
+    document.getElementById("jackpot").innerHTML =
+        "₹" + currentJackpot.toLocaleString("en-IN");
+}
+
+setInterval(updateJackpot, 1000);
+updateJackpot();
 
 </script>
 </body>
