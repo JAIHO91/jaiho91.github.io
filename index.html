@@ -924,24 +924,53 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('show');
 });
 
-const baseJackpot = 1246248;
-const startTime = new Date("2026-01-01").getTime();
+let displayedJackpot = 846828;
 
-function updateJackpot() {
+const baseJackpot = 846828;
+const startTime = Date.now();
 
-    const now = Date.now();
+function animateValue(start, end, duration) {
 
-    const seconds =
-        Math.floor((now - startTime) / 1000);
+    const range = end - start;
+    const startTimeAnim = performance.now();
 
-    const currentJackpot =
-        baseJackpot + (seconds * 15);
+    function update(now) {
 
-    document.getElementById("jackpot").innerHTML =
-        "₹" + currentJackpot.toLocaleString("en-IN");
+        const progress =
+            Math.min((now - startTimeAnim) / duration, 1);
+
+        const value =
+            Math.floor(start + (range * progress));
+
+        document.getElementById("jackpot").innerHTML =
+            "₹" + value.toLocaleString("en-IN");
+
+        if(progress < 1){
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
 }
 
-setInterval(updateJackpot, 1000);
+function updateJackpot(){
+
+    const seconds =
+        Math.floor((Date.now() - startTime) / 1000);
+
+    const targetJackpot =
+        baseJackpot + (seconds * 15);
+
+    animateValue(
+        displayedJackpot,
+        targetJackpot,
+        800
+    );
+
+    displayedJackpot = targetJackpot;
+}
+
+setInterval(updateJackpot,1000);
 updateJackpot();
 
 </script>
