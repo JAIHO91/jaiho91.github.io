@@ -1048,6 +1048,25 @@ Get updates, promotions and connect with fellow members.
 </footer>
     
 <script>
+// ANIMATED COUNTERS
+function animateCounter(id, target, suffix = '') {
+    let count = 0;
+    const step = Math.ceil(target / 100);
+    const timer = setInterval(() => {
+        count += step;
+        if (count >= target) {
+            count = target;
+            clearInterval(timer);
+        }
+        document.getElementById(id).textContent = count.toLocaleString() + suffix;
+    }, 20);
+}
+
+window.addEventListener('load', () => {
+    animateCounter('players', 5000, '+');
+    animateCounter('rewards', 12000, '+');
+});
+
 const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
 const closeBtn = document.querySelector('.close-bonus');
