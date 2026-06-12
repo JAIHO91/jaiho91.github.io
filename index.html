@@ -849,6 +849,28 @@ padding:30px;
 margin-top:50px;
 border-top:1px solid rgba(255,255,255,.1);
 }
+
+/* WINNER TICKER */
+.winner-ticker {
+    max-width: 650px;
+    margin: 10px auto 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 15px;
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.winner-ticker span {
+    color: white;
+    font-size: 15px;
+    animation: winnerSlide 0.5s ease;
+}
+
+.winner-icon {
+    color: #ffd700;
+    margin-right: 5px;
+}
     
 </style>
 
@@ -957,10 +979,8 @@ border-top:1px solid rgba(255,255,255,.1);
     <h2 id="jackpot">₹1,245,872</h2>
 </div>
 
-<div class="winner-feed">
-    <span id="winnerText">
-        🎉 Rahul won ₹12,450 on Aviator
-    </span>
+<div class="winner-ticker">
+    <span id="winnerText">🏆 Rahul won ₹12,450 on Aviator</span>
 </div>
 
 <!-- WHY CHOOSE -->
@@ -1069,7 +1089,29 @@ window.addEventListener('load', () => {
     animateCounter('players', 5000000, '+');
     animateCounter('rewards', 12000000, '+');
 });
+    
+// WINNER TICKER
+const winners = [
+    '🏆 Rahul won ₹12,450 on Aviator',
+    '💰 Priya won ₹8,200 on Fortune Tiger',
+    '🎉 Amit won ₹15,000 on Power of Kraken',
+    '🏆 Sneha won ₹22,000 on Ganesha Fortune',
+    '💰 Vikram won ₹9,500 on Jungle Fortune',
+    '🎉 Riya won ₹18,750 on Aviator',
+];
 
+let winnerIndex = 0;
+setInterval(() => {
+    winnerIndex = (winnerIndex + 1) % winners.length;
+    const el = document.getElementById('winnerText');
+    el.style.opacity = '0';
+    setTimeout(() => {
+        el.textContent = winners[winnerIndex];
+        el.style.opacity = '1';
+        el.style.transition = 'opacity 0.5s ease';
+    }, 300);
+}, 3000);
+    
 const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
 const closeBtn = document.querySelector('.close-bonus');
@@ -1178,52 +1220,6 @@ function animateCounter(id, target, prefix = "", suffix = "") {
 
 animateCounter("players", 50000, "", "+");
 animateCounter("rewards", 1000000, "₹", "+");
-
-const winnerNames = [
-    "Rahul",
-    "Amit",
-    "Vikram",
-    "Arjun",
-    "Sanjay",
-    "Rohit",
-    "Karan",
-    "Priya",
-    "Neha",
-    "Anjali"
-];
-
-function updateWinner(){
-
-    const name =
-        winnerNames[
-            Math.floor(Math.random() * winnerNames.length)
-        ];
-
-    const amount =
-        Math.floor(
-            Math.random() * 45000
-        ) + 5000;
-
-    const winner =
-        `🎉 ${name} won ₹${amount.toLocaleString("en-IN")} on Aviator`;
-
-    const el =
-        document.getElementById("winnerText");
-
-    el.style.animation = "none";
-
-    setTimeout(() => {
-
-        el.innerHTML = winner;
-
-        el.style.animation =
-            "winnerSlide 0.6s ease";
-
-    }, 50);
-
-}
-
-setInterval(updateWinner, 4000);
 
 </script>
 </body>
