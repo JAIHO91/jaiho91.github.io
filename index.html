@@ -635,25 +635,33 @@ margin-top:50px;
 border-top:1px solid rgba(255,255,255,.1);
 }
     
-.fly-plane{
+.gold-particle{
     position:fixed;
-    top:150px;
-    left:-200px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ffd700;
+    pointer-events:none;
+    z-index:99999;
 
-    font-size:40px;
+    box-shadow:
+        0 0 10px #ffd700,
+        0 0 20px #ffcc00;
 
-    z-index:1000;
-
-    animation:flyPlane 15s linear infinite;
+    animation:goldBurst 1.5s linear forwards;
 }
 
-@keyframes flyPlane{
+@keyframes goldBurst{
     0%{
-        transform:translateX(0);
+        opacity:1;
+        transform:translate(0,0) scale(1);
     }
 
     100%{
-        transform:translateX(calc(100vw + 400px));
+        opacity:0;
+        transform:
+            translate(var(--x),var(--y))
+            scale(.2);
     }
 }
     
@@ -662,8 +670,6 @@ border-top:1px solid rgba(255,255,255,.1);
 </head>
 
 <body>
-    
-    <div class="fly-plane">✈️</div>
 
 <!-- HERO -->
 
@@ -841,9 +847,26 @@ const closeBtn = document.querySelector('.close-bonus');
 // Auto show popup when website loads
 window.addEventListener('load', () => {
     setTimeout(() => {
+
         modal.classList.add('show');
         overlay.classList.add('show');
+
+        goldExplosion(
+            window.innerWidth/2,
+            window.innerHeight/2
+        );
+
     }, 500);
+});
+
+    document.querySelector('.claim-btn')
+.addEventListener('click',function(e){
+
+    goldExplosion(
+        window.innerWidth/2,
+        window.innerHeight/2
+    );
+
 });
 
 // Close popup when clicking X button
@@ -858,6 +881,34 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('show');
 });
 
+function goldExplosion(x,y){
+
+    for(let i=0;i<30;i++){
+
+        const p=document.createElement('div');
+        p.className='gold-particle';
+
+        p.style.left=x+'px';
+        p.style.top=y+'px';
+
+        p.style.setProperty(
+            '--x',
+            (Math.random()*400-200)+'px'
+        );
+
+        p.style.setProperty(
+            '--y',
+            (Math.random()*400-200)+'px'
+        );
+
+        document.body.appendChild(p);
+
+        setTimeout(()=>{
+            p.remove();
+        },1500);
+    }
+}
+    
 </script>
 </body>
 </html>
