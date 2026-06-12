@@ -637,8 +637,8 @@ border-top:1px solid rgba(255,255,255,.1);
     
 .gold-particle{
     position:fixed;
-    width:8px;
-    height:8px;
+    width:14px;
+    height:14px;
     border-radius:50%;
     background:#ffd700;
     pointer-events:none;
@@ -648,7 +648,7 @@ border-top:1px solid rgba(255,255,255,.1);
         0 0 10px #ffd700,
         0 0 20px #ffcc00;
 
-    animation:goldBurst 1.5s linear forwards;
+    animation:goldBurst 2.5s linear forwards;
 }
 
 @keyframes goldBurst{
@@ -883,7 +883,7 @@ overlay.addEventListener('click', () => {
 
 function goldExplosion(x,y){
 
-    for(let i=0;i<30;i++){
+    for(let i=0;i<180;i++){
 
         const p=document.createElement('div');
         p.className='gold-particle';
@@ -893,12 +893,12 @@ function goldExplosion(x,y){
 
         p.style.setProperty(
             '--x',
-            (Math.random()*400-200)+'px'
+            (Math.random()*1200-600)+'px'
         );
 
         p.style.setProperty(
             '--y',
-            (Math.random()*400-200)+'px'
+            (Math.random()*800-400)+'px'
         );
 
         document.body.appendChild(p);
