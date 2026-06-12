@@ -407,21 +407,10 @@ backdrop-filter:blur(10px);
 
 animation:floatCard 3s ease-in-out infinite;
 }
-.game-card:nth-child(1){
-animation-delay:0s;
-}
-
-.game-card:nth-child(2){
-animation-delay:.5s;
-}
-
-.game-card:nth-child(3){
-animation-delay:1s;
-}
-
-.game-card:nth-child(4){
-animation-delay:1.5s;
-}
+.games .game-link:nth-child(1) .game-card { animation-delay:0s; }
+.games .game-link:nth-child(2) .game-card { animation-delay:.5s; }
+.games .game-link:nth-child(3) .game-card { animation-delay:1s; }
+.games .game-link:nth-child(4) .game-card { animation-delay:1.5s; }
 
 .game-card:hover{
     transform:translateY(-10px) scale(1.03);
