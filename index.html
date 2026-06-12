@@ -868,7 +868,46 @@ border-top:1px solid rgba(255,255,255,.1);
     color: #ffd700;
     margin-right: 5px;
 }
-    
+
+/* SLOT JACKPOT */
+.jackpot-digits {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.digit-wrapper {
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+}
+
+.digit-inner {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.digit-inner span {
+    height: 80px;
+    line-height: 80px;
+    font-size: 64px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    display: block;
+    text-align: center;
+    min-width: 45px;
+}
+
+.jackpot-static {
+    font-size: 64px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    line-height: 80px;
+}
+
 </style>
 
 </head>
@@ -973,7 +1012,9 @@ border-top:1px solid rgba(255,255,255,.1);
    
 <div class="jackpot-box">
     <h3>🔥 LIVE JACKPOT</h3>
-    <h2 id="jackpot" style="letter-spacing: 2px;">₹<span id="jackpot-display"></span></h2>
+    <div class="jackpot-digits">
+    <span class="jackpot-static">₹</span>
+    <div id="slot-display" style="display:inline-flex; gap:4px;"></div>
 </div>
 
 <div class="winner-ticker">
@@ -1123,36 +1164,65 @@ setInterval(() => {
     }, 300);
 }, 3000);
 
-// CASINO ROLLING JACKPOT
+// SLOT MACHINE JACKPOT
 let jackpotValue = 1245872;
 
-function rollJackpot() {
-    jackpotValue += Math.floor(Math.random() * 500) + 100;
-    const digits = jackpotValue.toString().split('');
-    let display = '';
-    digits.forEach(d => {
-        display += `<span style="
-            display:inline-block;
-            animation: digitRoll 0.3s ease;
-        ">${d}</span>`;
+function buildSlots(numStr) {
+    const container = document.getElementById('slot-display');
+    container.innerHTML = '';
+    numStr.split('').forEach((char, i) => {
+        if (char === ',') {
+            const comma = document.createElement('span');
+            comma.className = 'jackpot-static';
+            comma.textContent = ',';
+            container.appendChild(comma);
+        } else {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'digit-wrapper';
+            wrapper.id = 'digit-' + i;
+
+            const inner = document.createElement('div');
+            inner.className = 'digit-inner';
+
+            for (let n = 0; n <= 9; n++) {
+                const span = document.createElement('span');
+                span.textContent = n;
+                inner.appendChild(span);
+            }
+
+            wrapper.appendChild(inner);
+            container.appendChild(wrapper);
+
+            // Set to current digit
+            inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
+        }
     });
-    // Add commas
-    document.getElementById('jackpot-display').innerHTML = 
-        jackpotValue.toLocaleString('en-IN');
 }
 
-// Add digit roll animation
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes digitRoll {
-    0% { transform: translateY(-10px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}`;
-document.head.appendChild(style);
+function updateSlots(newVal) {
+    const formatted = newVal.toLocaleString('en-IN');
+    const container = document.getElementById('slot-display');
+    const wrappers = container.querySelectorAll('.digit-wrapper');
+    const digits = formatted.replace(/,/g, '').split('');
 
-// Start rolling
-rollJackpot();
-setInterval(rollJackpot, 1500);
+    digits.forEach((char, i) => {
+        if (wrappers[i]) {
+            const inner = wrappers[i].querySelector('.digit-inner');
+            inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
+        }
+    });
+}
+
+// Init
+window.addEventListener('load', () => {
+    const formatted = jackpotValue.toLocaleString('en-IN');
+    buildSlots(formatted);
+
+    setInterval(() => {
+        jackpotValue += Math.floor(Math.random() * 500) + 100;
+        updateSlots(jackpotValue);
+    }, 1500);
+});
 
 const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
