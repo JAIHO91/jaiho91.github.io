@@ -973,7 +973,7 @@ border-top:1px solid rgba(255,255,255,.1);
    
 <div class="jackpot-box">
     <h3>🔥 LIVE JACKPOT</h3>
-    <h2 id="jackpot">₹1,245,872</h2>
+    <h2 id="jackpot" style="letter-spacing: 2px;">₹<span id="jackpot-display"></span></h2>
 </div>
 
 <div class="winner-ticker">
@@ -1122,7 +1122,38 @@ setInterval(() => {
         el.style.transition = 'opacity 0.5s ease';
     }, 300);
 }, 3000);
-    
+
+// CASINO ROLLING JACKPOT
+let jackpotValue = 1245872;
+
+function rollJackpot() {
+    jackpotValue += Math.floor(Math.random() * 500) + 100;
+    const digits = jackpotValue.toString().split('');
+    let display = '';
+    digits.forEach(d => {
+        display += `<span style="
+            display:inline-block;
+            animation: digitRoll 0.3s ease;
+        ">${d}</span>`;
+    });
+    // Add commas
+    document.getElementById('jackpot-display').innerHTML = 
+        jackpotValue.toLocaleString('en-IN');
+}
+
+// Add digit roll animation
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes digitRoll {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}`;
+document.head.appendChild(style);
+
+// Start rolling
+rollJackpot();
+setInterval(rollJackpot, 1500);
+
 const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
 const closeBtn = document.querySelector('.close-bonus');
