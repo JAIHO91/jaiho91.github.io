@@ -963,9 +963,9 @@ function updateJackpot(){
 
     // Global irregular growth
     const growth =
-        Math.floor(seconds * 0.4) +
-        Math.floor(seconds / 30) * 3 +
-        Math.floor(seconds / 120) * 8;
+        Math.floor(seconds * 0.8) +
+        Math.floor(seconds / 30) * 6 +
+        Math.floor(seconds / 120) * 10;
 
     const targetJackpot =
         baseJackpot + growth;
