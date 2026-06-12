@@ -480,6 +480,20 @@ font-size:24px;
     .game-card{
     cursor:pointer;
 }
+.jackpot-box{
+    text-align:center;
+    margin:50px auto;
+}
+
+#jackpot{
+    font-size:60px;
+    color:#ffd700;
+
+    text-shadow:
+        0 0 10px #ffd700,
+        0 0 20px #ffd700,
+        0 0 40px #ff0080;
+}
 
 /* FEATURES */
 
@@ -814,6 +828,11 @@ border-top:1px solid rgba(255,255,255,.1);
 </div>
 
 </div>
+    
+<div class="jackpot-box">
+    <h3>🔥 LIVE JACKPOT</h3>
+    <h2 id="jackpot">₹1,245,872</h2>
+</div>
 
 <!-- WHY CHOOSE -->
 
@@ -904,6 +923,17 @@ overlay.addEventListener('click', () => {
     modal.classList.remove('show');
     overlay.classList.remove('show');
 });
+
+/* JACKPOT COUNTER */
+let jackpot = 1245872;
+const jackpotEl = document.getElementById("jackpot");
+
+setInterval(() => {
+    jackpot += Math.floor(Math.random() * 50);
+
+    jackpotEl.innerHTML =
+        "₹" + jackpot.toLocaleString("en-IN");
+}, 3000);
 
 </script>
 </body>
