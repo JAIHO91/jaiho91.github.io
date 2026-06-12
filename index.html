@@ -924,17 +924,16 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('show');
 });
 
-let displayedJackpot = 846828;
+/* LIVE JACKPOT */
 
-const baseJackpot = 846828;
-const startTime = Date.now();
+let displayedJackpot = 546248;
 
-function animateValue(start, end, duration) {
+function animateValue(start, end, duration){
 
     const range = end - start;
     const startTimeAnim = performance.now();
 
-    function update(now) {
+    function update(now){
 
         const progress =
             Math.min((now - startTimeAnim) / duration, 1);
@@ -955,22 +954,22 @@ function animateValue(start, end, duration) {
 
 function updateJackpot(){
 
-    const seconds =
-        Math.floor((Date.now() - startTime) / 1000);
+    const increase =
+        Math.floor(Math.random() * 8) + 1;
 
     const targetJackpot =
-        baseJackpot + (seconds * 15);
+        displayedJackpot + increase;
 
     animateValue(
         displayedJackpot,
         targetJackpot,
-        800
+        1000
     );
 
     displayedJackpot = targetJackpot;
 }
 
-setInterval(updateJackpot,1000);
+setInterval(updateJackpot, 4000);
 updateJackpot();
 
 </script>
