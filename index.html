@@ -1205,12 +1205,9 @@ function updateJackpot() {
     const intervals = Math.floor(seconds / 2);
     
     // Use intervals to create consistent random-looking jumps
-    let value = jackpotBase;
-    for (let i = 0; i <= intervals; i++) {
-        const seed = (i * 9301 + 49297) % 233280;
-        const rand = Math.floor((seed / 233280) * 1200) + 300;
-        value += rand;
-    }
+    
+   let value = jackpotBase + (intervals * 50);
+value += Math.floor(getSeededRandom(intervals) * 100);
     
     lastJackpot = value;
     const el = document.getElementById('jackpot-number');
