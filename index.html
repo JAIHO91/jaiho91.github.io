@@ -912,23 +912,27 @@ footer {
 .footer-brand .footer-logo {
     font-size: 28px;
     font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700;
+    background: linear-gradient(90deg, #ff0080, #ffd700, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 8px rgba(255,0,128,.6))
+            drop-shadow(0 0 16px rgba(255,215,0,.4));
     display: block;
     margin-bottom: 12px;
 }
 
-.footer-brand p {
-    color: #aaa;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
 .footer-col h4 {
-    color: #ffd700;
     font-size: 16px;
     margin-bottom: 16px;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(90deg, #ff0080, #ffd700, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 6px rgba(255,0,128,.5))
+            drop-shadow(0 0 12px rgba(255,215,0,.3));
 }
 
 .footer-col ul {
