@@ -853,11 +853,100 @@ body {
 
 /* FOOTER */
 
-footer{
-text-align:center;
-padding:30px;
-margin-top:50px;
-border-top:1px solid rgba(255,255,255,.1);
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 0, 128, 0.3);
+}
+
+.footer-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.footer-brand .footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-col h4 {
+    color: #ffd700;
+    font-size: 16px;
+    margin-bottom: 16px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 6px #ffd700;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-social a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-social a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 6px #ffd700;
+}
+
+.footer-social a i {
+    width: 20px;
+    color: #ff0080;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    color: #666;
+    font-size: 13px;
+}
+
+.footer-bottom span {
+    color: #ff0080;
 }
 
 /* WINNER TICKER */
@@ -1192,7 +1281,44 @@ Get updates, promotions and connect with fellow members.
 </div>
     
 <footer>
-© 2026 JAIHO91 Official
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <span class="footer-logo">JAIHO91</span>
+            <p>Premium gaming community with exclusive rewards. Join thousands of members winning big every day.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Community</a></li>
+                <li><a href="https://jaiho91.com" target="_blank">Join Now</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="footer-social">
+                <a href="https://facebook.com/Jaiho91Officiall" target="_blank">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/jaiho91officiall/" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://safechat.com/u/jaiho91" target="_blank">
+                    <i class="fas fa-comments"></i> SafeChat
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 <span>JAIHO91</span> Official — All Rights Reserved
+    </div>
 </footer>
     
 <script>
