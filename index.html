@@ -404,12 +404,12 @@ box-shadow:
     font-size:42px;
     font-weight:bold;
     margin:60px 0 30px;
-    color:white;
-
-    text-shadow:
-    0 0 10px #ff0080,
-    0 0 20px #ff0080,
-    0 0 40px #ff0080;
+    background:linear-gradient(90deg,#ff0080,#ffd700,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    filter:drop-shadow(0 0 8px rgba(255,0,128,.6))
+           drop-shadow(0 0 16px rgba(255,215,0,.4));
 }
 
 /* GAMES */
@@ -488,9 +488,14 @@ font-size:24px;
 }
 
 .stat h2{
-    color:#ffd700;
     font-size:42px;
     margin-bottom:10px;
+    background:linear-gradient(90deg,#ff0080,#ffd700,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    filter:drop-shadow(0 0 8px rgba(255,0,128,.6))
+           drop-shadow(0 0 16px rgba(255,215,0,.4));
 }
 
 .stat p{
@@ -847,12 +852,16 @@ transform:translateY(0);
     align-items: center;
 }
 
-.navbar .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700;
-    text-decoration: none;
+.navbar .logo{
+    font-size:22px;
+    font-weight:bold;
+    text-decoration:none;
+    background:linear-gradient(90deg,#ff0080,#ffd700,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    filter:drop-shadow(0 0 8px rgba(255,0,128,.6))
+           drop-shadow(0 0 16px rgba(255,215,0,.4));
 }
 
 .navbar .nav-links {
