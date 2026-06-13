@@ -893,8 +893,8 @@ border-top:1px solid rgba(255,255,255,.1);
     line-height: 80px;
     font-size: 64px;
     font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    color: #c8960c;
+    text-shadow: 0 0 8px #a67c00, 0 0 15px #c8960c;
     display: block;
     text-align: center;
     min-width: 45px;
@@ -903,8 +903,8 @@ border-top:1px solid rgba(255,255,255,.1);
 .jackpot-static {
     font-size: 64px;
     font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    color: #c8960c;
+    text-shadow: 0 0 8px #a67c00, 0 0 15px #c8960c;
     line-height: 80px;
 }
 
@@ -1166,7 +1166,13 @@ setInterval(() => {
 }, 3000);
 
 // SLOT MACHINE JACKPOT
-let jackpotValue = 1245872;
+const jackpotBase = 12457890;
+const jackpotStart = new Date("2026-06-01T00:00:00").getTime();
+
+function getJackpotValue() {
+    const seconds = Math.floor((Date.now() - jackpotStart) / 1000);
+    return jackpotBase + (seconds * 3);
+}
 
 function buildSlots(numStr) {
     const container = document.getElementById('slot-display');
@@ -1181,24 +1187,39 @@ function buildSlots(numStr) {
             const wrapper = document.createElement('div');
             wrapper.className = 'digit-wrapper';
             wrapper.id = 'digit-' + i;
-
             const inner = document.createElement('div');
             inner.className = 'digit-inner';
-
             for (let n = 0; n <= 9; n++) {
                 const span = document.createElement('span');
                 span.textContent = n;
                 inner.appendChild(span);
             }
-
             wrapper.appendChild(inner);
             container.appendChild(wrapper);
-
-            // Set to current digit
             inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
         }
     });
 }
+
+function updateSlots() {
+    const newVal = getJackpotValue();
+    const formatted = newVal.toLocaleString('en-IN');
+    const container = document.getElementById('slot-display');
+    const wrappers = container.querySelectorAll('.digit-wrapper');
+    const digits = formatted.replace(/,/g, '').split('');
+    digits.forEach((char, i) => {
+        if (wrappers[i]) {
+            const inner = wrappers[i].querySelector('.digit-inner');
+            inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
+        }
+    });
+}
+
+window.addEventListener('load', () => {
+    const formatted = getJackpotValue().toLocaleString('en-IN');
+    buildSlots(formatted);
+    setInterval(updateSlots, 2000);
+});
 
 function updateSlots(newVal) {
     const formatted = newVal.toLocaleString('en-IN');
