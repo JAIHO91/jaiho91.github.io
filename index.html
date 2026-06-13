@@ -1138,11 +1138,6 @@ function animateCounter(id, target, prefix = '') {
     }, interval);
 }
 
-window.addEventListener('load', () => {
-    animateCounter('players', 5000000, '+');
-    animateCounter('rewards', 12000000, '+');
-});
-    
 // WINNER TICKER
 const winners = [
     '🏆 Rahul won ₹12,450 on Aviator',
@@ -1180,7 +1175,7 @@ setInterval(() => {
 }, 3000);
 
 // SLOT MACHINE JACKPOT
-const jackpotBase = 1000000;
+const jackpotBase = 12457890;
 const jackpotStart = new Date("2026-06-01T00:00:00").getTime();
 
 function getJackpotValue() {
@@ -1200,7 +1195,6 @@ function buildSlots(numStr) {
         } else {
             const wrapper = document.createElement('div');
             wrapper.className = 'digit-wrapper';
-            wrapper.id = 'digit-' + i;
             const inner = document.createElement('div');
             inner.className = 'digit-inner';
             for (let n = 0; n <= 9; n++) {
@@ -1210,8 +1204,8 @@ function buildSlots(numStr) {
             }
             wrapper.appendChild(inner);
             container.appendChild(wrapper);
-            inner.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
+            inner.style.transition = 'none';
+            inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
         }
     });
 }
@@ -1225,61 +1219,39 @@ function updateSlots() {
     digits.forEach((char, i) => {
         if (wrappers[i]) {
             const inner = wrappers[i].querySelector('.digit-inner');
+            inner.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
         }
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const formatted = getJackpotValue().toLocaleString('en-IN');
-    buildSlots(formatted);
-    setInterval(updateSlots, 2000);
-});
-
-function updateSlots(newVal) {
-    const formatted = newVal.toLocaleString('en-IN');
-    const container = document.getElementById('slot-display');
-    const wrappers = container.querySelectorAll('.digit-wrapper');
-    const digits = formatted.replace(/,/g, '').split('');
-
-    digits.forEach((char, i) => {
-        if (wrappers[i]) {
-            const inner = wrappers[i].querySelector('.digit-inner');
-            inner.style.transform = `translateY(-${parseInt(char) * 80}px)`;
-        }
-    });
-}
-
-// Init
-window.addEventListener('load', () => {
-    const formatted = jackpotValue.toLocaleString('en-IN');
-    buildSlots(formatted);
-
-    setInterval(() => {
-        jackpotValue += Math.floor(Math.random() * 500) + 100;
-        updateSlots(jackpotValue);
-    }, 1500);
-});
-
+// POPUP
 const modal = document.querySelector('.popup-bonus');
 const overlay = document.querySelector('.bonus-overlay');
 const closeBtn = document.querySelector('.close-bonus');
 
-// Auto show popup
 window.addEventListener('load', () => {
+    // Counters
+    animateCounter('players', 5000000, '+');
+    animateCounter('rewards', 12000000, '+');
+
+    // Jackpot
+    const formatted = getJackpotValue().toLocaleString('en-IN');
+    buildSlots(formatted);
+    setInterval(updateSlots, 2000);
+
+    // Popup
     setTimeout(() => {
         modal.classList.add('show');
         overlay.classList.add('show');
     }, 500);
 });
 
-// Close popup X
 closeBtn.addEventListener('click', () => {
     modal.classList.remove('show');
     overlay.classList.remove('show');
 });
 
-// Close popup klik background
 overlay.addEventListener('click', () => {
     modal.classList.remove('show');
     overlay.classList.remove('show');
