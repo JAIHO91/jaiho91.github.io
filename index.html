@@ -1200,11 +1200,20 @@ const jackpotStart = new Date("2026-06-01T00:00:00").getTime();
 
 let lastJackpot = 0;
 
+let lastJackpot = 0;
+
 function updateJackpot() {
     const seconds = Math.floor((Date.now() - jackpotStart) / 1000);
-    const burst = (seconds % 7 === 0) ? 1500 : (seconds % 3 === 0) ? 800 : 200;
-    let value = jackpotBase + (seconds * 5) + burst;
-    if (value < lastJackpot) value = lastJackpot + 300;
+    const intervals = Math.floor(seconds / 2);
+    
+    // Use intervals to create consistent random-looking jumps
+    let value = jackpotBase;
+    for (let i = 0; i <= intervals; i++) {
+        const seed = (i * 9301 + 49297) % 233280;
+        const rand = Math.floor((seed / 233280) * 1200) + 300;
+        value += rand;
+    }
+    
     lastJackpot = value;
     const el = document.getElementById('jackpot-number');
     el.style.opacity = '0';
