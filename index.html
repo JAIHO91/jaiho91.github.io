@@ -944,6 +944,24 @@ border-top:1px solid rgba(255,255,255,.1);
     letter-spacing: 3px;
     margin-top: 10px;
 }
+
+/* TESTIMONIALS */
+.testimonials{max-width:1200px;margin:0 auto 20px;padding:20px;overflow:hidden;}
+.testimonials-track-wrapper{overflow:hidden;position:relative;}
+.testimonials-track-wrapper::before,.testimonials-track-wrapper::after{content:"";position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;}
+.testimonials-track-wrapper::before{left:0;background:linear-gradient(90deg,#2a0048,transparent);}
+.testimonials-track-wrapper::after{right:0;background:linear-gradient(-90deg,#2a0048,transparent);}
+.testimonials-track{display:flex;gap:24px;width:max-content;animation:scrollTestimonials 30s linear infinite;}
+.testimonials-track:hover{animation-play-state:paused;}
+@keyframes scrollTestimonials{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.tcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,0,128,.3);border-radius:20px;padding:28px 24px;width:300px;flex-shrink:0;backdrop-filter:blur(10px);transition:box-shadow .3s,transform .3s;}
+.tcard:hover{transform:translateY(-6px);box-shadow:0 0 25px rgba(255,0,128,.5),0 0 50px rgba(255,215,0,.2);}
+.tcard-stars{color:#ffd700;font-size:18px;margin-bottom:12px;text-shadow:0 0 6px #ffd700;}
+.tcard-text{color:#ddd;font-size:15px;line-height:1.65;margin-bottom:18px;font-style:italic;}
+.tcard-author{display:flex;align-items:center;gap:12px;}
+.tcard-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ff0080,#ffd700);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 0 10px #ff0080;}
+.tcard-name{font-weight:bold;font-size:15px;color:#ffd700;}
+.tcard-game{font-size:12px;color:#aaa;margin-top:2px;}
     
 </style>
 
@@ -1084,6 +1102,42 @@ border-top:1px solid rgba(255,255,255,.1);
 
 </div>
 
+ <!-- TESTIMONIALS -->
+<h2 class="section-title">What Members Say</h2>
+<div class="testimonials">
+  <div class="testimonials-track-wrapper">
+    <div class="testimonials-track">
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Withdrew ₹18,000 within 10 minutes. No delays, no drama. JAIHO91 is the real deal!"</p><div class="tcard-author"><div class="tcard-avatar">🦁</div><div><div class="tcard-name">Rahul M.</div><div class="tcard-game">Aviator player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The welcome bonus was actually credited instantly. Never seen that on any other platform!"</p><div class="tcard-author"><div class="tcard-avatar">🌸</div><div><div class="tcard-name">Priya S.</div><div class="tcard-game">Fortune Tiger player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Hit ₹31,000 on Fortune Tiger last night. Community tipped me off about a lucky streak. Love this place!"</p><div class="tcard-author"><div class="tcard-avatar">🐯</div><div><div class="tcard-name">Arjun K.</div><div class="tcard-game">Fortune Tiger player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Support replied in under 2 minutes. They sorted my issue before I even finished typing. Insane service!"</p><div class="tcard-author"><div class="tcard-avatar">💎</div><div><div class="tcard-name">Sneha R.</div><div class="tcard-game">Ganesha Fortune player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Been here 3 months. Consistent wins, smooth app, and the jackpot is always climbing. Highly recommend!"</p><div class="tcard-author"><div class="tcard-avatar">🔥</div><div><div class="tcard-name">Vikram P.</div><div class="tcard-game">Power of Kraken player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Joined through Instagram and got my bonus same day. Games are smooth even on mobile data."</p><div class="tcard-author"><div class="tcard-avatar">🌙</div><div><div class="tcard-name">Anjali T.</div><div class="tcard-game">Aviator player</div></div></div></div>
+
+      <!-- duplicate all 6 cards below for seamless infinite loop -->
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Withdrew ₹18,000 within 10 minutes. No delays, no drama. JAIHO91 is the real deal!"</p><div class="tcard-author"><div class="tcard-avatar">🦁</div><div><div class="tcard-name">Rahul M.</div><div class="tcard-game">Aviator player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The welcome bonus was actually credited instantly. Never seen that on any other platform!"</p><div class="tcard-author"><div class="tcard-avatar">🌸</div><div><div class="tcard-name">Priya S.</div><div class="tcard-game">Fortune Tiger player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Hit ₹31,000 on Fortune Tiger last night. Community tipped me off about a lucky streak. Love this place!"</p><div class="tcard-author"><div class="tcard-avatar">🐯</div><div><div class="tcard-name">Arjun K.</div><div class="tcard-game">Fortune Tiger player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Support replied in under 2 minutes. They sorted my issue before I even finished typing. Insane service!"</p><div class="tcard-author"><div class="tcard-avatar">💎</div><div><div class="tcard-name">Sneha R.</div><div class="tcard-game">Ganesha Fortune player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Been here 3 months. Consistent wins, smooth app, and the jackpot is always climbing. Highly recommend!"</p><div class="tcard-author"><div class="tcard-avatar">🔥</div><div><div class="tcard-name">Vikram P.</div><div class="tcard-game">Power of Kraken player</div></div></div></div>
+
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Joined through Instagram and got my bonus same day. Games are smooth even on mobile data."</p><div class="tcard-author"><div class="tcard-avatar">🌙</div><div><div class="tcard-name">Anjali T.</div><div class="tcard-game">Aviator player</div></div></div></div>
+
+    </div>
+  </div>
+</div>   
+    
 <!-- COMMUNITY -->
 
 <div class="community" id="contact">
