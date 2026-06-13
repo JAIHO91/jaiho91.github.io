@@ -1200,8 +1200,6 @@ const jackpotStart = new Date("2026-06-01T00:00:00").getTime();
 
 let lastJackpot = 0;
 
-let lastJackpot = 0;
-
 function updateJackpot() {
     const seconds = Math.floor((Date.now() - jackpotStart) / 1000);
     const intervals = Math.floor(seconds / 2);
