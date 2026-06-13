@@ -880,6 +880,7 @@ border-top:1px solid rgba(255,255,255,.1);
     height: 80px;
     overflow: hidden;
     position: relative;
+    display: inline-block;
 }
 
 .digit-inner {
@@ -1176,7 +1177,7 @@ setInterval(() => {
 }, 3000);
 
 // SLOT MACHINE JACKPOT
-const jackpotBase = 12457890;
+const jackpotBase = 1000000;
 const jackpotStart = new Date("2026-06-01T00:00:00").getTime();
 
 function getJackpotValue() {
@@ -1225,7 +1226,7 @@ function updateSlots() {
     });
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const formatted = getJackpotValue().toLocaleString('en-IN');
     buildSlots(formatted);
     setInterval(updateSlots, 2000);
