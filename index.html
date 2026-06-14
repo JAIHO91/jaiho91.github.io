@@ -1278,6 +1278,41 @@ footer {
         gap:30px;
     }
 }
+
+/* SCROLL TO TOP */
+.scroll-top{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff0080,#ffd700);
+    color:white;
+    font-size:20px;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(255,0,128,.6),
+               0 0 30px rgba(255,215,0,.3);
+}
+
+.scroll-top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.scroll-top:hover{
+    transform:translateY(-5px) scale(1.1);
+    box-shadow:0 0 25px rgba(255,0,128,.8),
+               0 0 50px rgba(255,215,0,.5);
+}
   
 </style>
 
@@ -1537,6 +1572,8 @@ footer {
         </div>
     </div>
 </div>
+
+<button class="scroll-top" id="scrollTop">▲</button>
   
 <footer>
     <div class="footer-main">
@@ -1596,6 +1633,20 @@ function animateCounter(id, target, prefix = '') {
         document.getElementById(id).textContent = prefix + Math.floor(count).toLocaleString();
     }, interval);
 }
+
+// SCROLL TO TOP
+const scrollBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 300){
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+});
+
 // HAMBURGER MENU
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
