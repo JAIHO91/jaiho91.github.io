@@ -1182,7 +1182,106 @@ footer {
 .tcard-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ff0080,#ffd700);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 0 10px #ff0080;}
 .tcard-name{font-weight:bold;font-size:15px;color:#ffd700;}
 .tcard-game{font-size:12px;color:#aaa;margin-top:2px;}
-    
+
+/* ABOUT SECTION */
+.about{
+    max-width:1100px;
+    margin:60px auto;
+    padding:50px 40px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,0,128,.3);
+    border-radius:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(255,0,128,.15);
+}
+
+.about-text h2{
+    font-size:38px;
+    font-weight:bold;
+    margin-bottom:16px;
+    background:linear-gradient(90deg,#ff0080,#ffd700,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    filter:drop-shadow(0 0 8px rgba(255,0,128,.5));
+}
+
+.about-text p{
+    color:#ccc;
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.about-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:10px;
+}
+
+.about-badge{
+    padding:8px 18px;
+    background:rgba(255,0,128,.1);
+    border:1px solid rgba(255,0,128,.4);
+    border-radius:50px;
+    font-size:14px;
+    color:white;
+}
+
+.about-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.about-stat-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,0,128,.3);
+    border-radius:16px;
+    padding:24px;
+    text-align:center;
+    transition:.3s;
+}
+
+.about-stat-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(255,0,128,.4);
+}
+
+.about-stat-card .icon{
+    font-size:32px;
+    margin-bottom:10px;
+    display:block;
+}
+
+.about-stat-card h3{
+    font-size:24px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#ff0080,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    margin-bottom:6px;
+}
+
+.about-stat-card p{
+    color:#aaa;
+    font-size:13px;
+}
+
+@media(max-width:768px){
+    .about{
+        grid-template-columns:1fr;
+        padding:30px 20px;
+        gap:30px;
+    }
+}
+  
 </style>
 
 </head>
@@ -1402,7 +1501,46 @@ footer {
 </div>
 
 </div>
-    
+
+<!-- ABOUT -->
+<div class="about" id="about">
+    <div class="about-text">
+        <h2>About JAIHO91</h2>
+        <p>JAIHO91 is a premium gaming community founded to give every member in India the best online gaming experience. We connect thousands of players with top games, exclusive bonuses and lightning-fast payouts.</p>
+        <p>Our mission is simple — make every member feel like a VIP. From your first bonus to your biggest win, we're with you every step of the way.</p>
+        <div class="about-badges">
+            <span class="about-badge">✅ Trusted Platform</span>
+            <span class="about-badge">⚡ Fast Withdrawals</span>
+            <span class="about-badge">🔒 100% Secure</span>
+            <span class="about-badge">🎮 Top Games</span>
+            <span class="about-badge">24/7 Support</span>
+        </div>
+    </div>
+
+    <div class="about-stats">
+        <div class="about-stat-card">
+            <span class="icon">👥</span>
+            <h3>5M+</h3>
+            <p>Active Members</p>
+        </div>
+        <div class="about-stat-card">
+            <span class="icon">💰</span>
+            <h3>₹12M+</h3>
+            <p>Rewards Paid</p>
+        </div>
+        <div class="about-stat-card">
+            <span class="icon">🎮</span>
+            <h3>50+</h3>
+            <p>Premium Games</p>
+        </div>
+        <div class="about-stat-card">
+            <span class="icon">⚡</span>
+            <h3>2 Min</h3>
+            <p>Avg Withdrawal</p>
+        </div>
+    </div>
+</div>
+  
 <footer>
     <div class="footer-main">
 
