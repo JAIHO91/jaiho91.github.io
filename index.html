@@ -1728,8 +1728,6 @@ const closeBtn = document.querySelector('.close-bonus');
 window.addEventListener('load', () => {
     animateCounter('players', 5000000, '+');
     animateCounter('rewards', 12000000, '+');
-    updateJackpot();
-    setInterval(updateJackpot, 2000);
     setTimeout(() => {
         modal.classList.add('show');
         overlay.classList.add('show');
