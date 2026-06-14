@@ -1368,7 +1368,110 @@ footer {
     box-shadow:0 0 25px rgba(255,0,128,.5),
                0 0 50px rgba(255,215,0,.2);
 }
-  
+
+/* BONUS SECTION */
+.bonus-section{
+    max-width:700px;
+    margin:60px auto;
+    padding:40px 30px;
+    background:linear-gradient(135deg,rgba(0,20,40,0.95),rgba(0,10,30,0.95));
+    border:1px solid rgba(0,200,255,0.3);
+    border-radius:25px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 0 30px rgba(0,200,255,0.15);
+}
+
+.bonus-vip-tag{
+    position:absolute;
+    top:0;
+    right:0;
+    background:linear-gradient(135deg,#ffd700,#ff8c00);
+    color:#000;
+    font-size:12px;
+    font-weight:bold;
+    padding:8px 16px;
+    border-radius:0 25px 0 15px;
+}
+
+.bonus-section h2{
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:8px;
+}
+
+.bonus-section h2 span{
+    color:#ffd700;
+}
+
+.bonus-cashback{
+    background:rgba(255,100,0,0.2);
+    border:1px solid rgba(255,100,0,0.4);
+    border-radius:50px;
+    padding:6px 20px;
+    font-size:13px;
+    color:#ff8c00;
+    display:inline-block;
+    margin-bottom:8px;
+}
+
+.bonus-subtitle{
+    color:#aaa;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.bonus-rows{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.bonus-row{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(0,200,255,0.2);
+    border-radius:50px;
+    padding:14px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s;
+}
+
+.bonus-row:hover{
+    background:rgba(0,200,255,0.1);
+    border-color:rgba(0,200,255,0.5);
+    transform:translateX(5px);
+}
+
+.bonus-row-left{
+    font-size:15px;
+    font-weight:bold;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.bonus-row-right{
+    font-size:14px;
+    font-weight:bold;
+    color:#ffd700;
+}
+
+.bonus-footer{
+    color:#aaa;
+    font-size:12px;
+    margin-top:15px;
+}
+
+.bonus-footer span{
+    color:#00c8ff;
+    cursor:pointer;
+}
+
 </style>
 
 </head>
@@ -1548,6 +1651,36 @@ footer {
     </div>
   </div>
 </div>   
+
+<!-- FIRST DEPOSIT BONUS -->
+<div class="bonus-section">
+    <div class="bonus-vip-tag">⭐ VIP ENTRY</div>
+
+    <h2>🎁 FIRST DEPOSIT <span>BONUS</span></h2>
+    <div class="bonus-cashback">🔥 INCLUDES 20% CASHBACK VOUCHER 🔥</div>
+    <p class="bonus-subtitle">CASHBACK UP TO 50% + MEGA DEAL rewards</p>
+
+    <div class="bonus-rows">
+        <div class="bonus-row">
+            <div class="bonus-row-left">💧 Extra +50% <span style="color:#00c8ff;">(POPULAR)</span></div>
+            <div class="bonus-row-right">Deposit ₹75 → Get ₹75+Voucher</div>
+        </div>
+        <div class="bonus-row">
+            <div class="bonus-row-left">⚡ Extra +40% <span style="color:#ffd700;">(BEST VALUE)</span></div>
+            <div class="bonus-row-right">Deposit ₹42 → Get ₹42+Voucher</div>
+        </div>
+        <div class="bonus-row">
+            <div class="bonus-row-left">👑 Extra +30% <span style="color:#ff0080;">(MEGA DEAL)</span></div>
+            <div class="bonus-row-right">Deposit ₹130 → Get ₹130+Voucher</div>
+        </div>
+        <div class="bonus-row">
+            <div class="bonus-row-left">🎮 Extra +20% + VIP entry</div>
+            <div class="bonus-row-right">Deposit ₹360 → Get ₹360+Voucher</div>
+        </div>
+    </div>
+
+    <p class="bonus-footer">⭐ Other amount eligible | <span>Add Cash</span> to claim 20% voucher + VIP perks</p>
+</div>
 
 <!-- COMMUNITY -->
 
