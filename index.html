@@ -475,9 +475,37 @@ animation:floatCard 3s ease-in-out infinite;
 }
 
 .game-card h3{
-padding:18px;
+padding:12px 18px 4px;
 text-align:center;
 font-size:24px;
+}
+
+.game-winner{
+padding:0 18px 14px;
+text-align:center;
+font-size:13px;
+color:#ffd700;
+text-shadow:0 0 6px rgba(255,215,0,.4);
+animation:winnerSlide 0.5s ease;
+}
+
+.game-winner span{
+color:#ff0080;
+font-weight:bold;
+}
+
+.game-winner{
+padding:0 18px 14px;
+text-align:center;
+font-size:13px;
+color:#ffd700;
+text-shadow:0 0 6px rgba(255,215,0,.4);
+animation:winnerSlide 0.5s ease;
+}
+
+.game-winner span{
+color:#ff0080;
+font-weight:bold;
 }
 
 .stats{
@@ -1400,6 +1428,7 @@ footer {
     <div class="game-card">
         <img src="powerbro.png" alt="Power Of Kraken">
         <h3>Power Of Kraken</h3>
+        <div class="game-winner" id="winner-kraken">🏆 <span>Amit</span> won ₹15,563</div>
     </div>
 </a>
 
@@ -1407,6 +1436,7 @@ footer {
     <div class="game-card">
         <img src="fortune-tiger.png" alt="Fortune Tiger">
         <h3>Fortune Tiger</h3>
+        <div class="game-winner" id="winner-tiger">🏆 <span>Priya</span> won ₹8,213</div>
     </div>
 </a>
 
@@ -1414,6 +1444,7 @@ footer {
     <div class="game-card">
         <img src="ganeshabro.jpg" alt="Ganesha Fortune">
         <h3>Ganesha Fortune</h3>
+        <div class="game-winner" id="winner-ganesha">🏆 <span>Sneha</span> won ₹22,120</div>
     </div>
 </a>
 
@@ -1421,10 +1452,9 @@ footer {
     <div class="game-card">
         <img src="junglebro.png" alt="Jungle Fortune">
         <h3>Jungle Fortune</h3>
+        <div class="game-winner" id="winner-jungle">🏆 <span>Karan</span> won ₹14,213</div>
     </div>
-</a>
-
-</div>    
+</a> 
 
 <!-- WHY CHOOSE -->
 
@@ -1651,6 +1681,62 @@ window.addEventListener('scroll', () => {
 scrollBtn.addEventListener('click', () => {
     window.scrollTo({top:0, behavior:'smooth'});
 });
+
+// GAME WINNERS
+const gameWinners = {
+    'winner-kraken': [
+        {name:'Amit', amount:'₹15,563'},
+        {name:'Suresh', amount:'₹16,325'},
+        {name:'Deepak', amount:'₹7,368'},
+        {name:'Ramesh', amount:'₹41,516'},
+        {name:'Vikram', amount:'₹9,515'},
+    ],
+    'winner-tiger': [
+        {name:'Priya', amount:'₹8,213'},
+        {name:'Arjun', amount:'₹31,023'},
+        {name:'Rohit', amount:'₹11,752'},
+        {name:'Kavya', amount:'₹13,878'},
+        {name:'Anjali', amount:'₹19,453'},
+    ],
+    'winner-ganesha': [
+        {name:'Sneha', amount:'₹22,120'},
+        {name:'Sanjay', amount:'₹7,809'},
+        {name:'Divya', amount:'₹28,414'},
+        {name:'Pooja', amount:'₹9,925'},
+        {name:'Meena', amount:'₹33,259'},
+    ],
+    'winner-jungle': [
+        {name:'Karan', amount:'₹14,213'},
+        {name:'Riya', amount:'₹18,759'},
+        {name:'Rahul', amount:'₹12,450'},
+        {name:'Arun', amount:'₹3,259'},
+        {name:'Neha', amount:'₹25,555'},
+    ],
+};
+
+const gameWinnerIndexes = {
+    'winner-kraken': 0,
+    'winner-tiger': 0,
+    'winner-ganesha': 0,
+    'winner-jungle': 0,
+};
+
+function rotateGameWinners(){
+    Object.keys(gameWinners).forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        gameWinnerIndexes[id] = (gameWinnerIndexes[id] + 1) % gameWinners[id].length;
+        const winner = gameWinners[id][gameWinnerIndexes[id]];
+        el.style.opacity = '0';
+        setTimeout(() => {
+            el.innerHTML = `🏆 <span>${winner.name}</span> won ${winner.amount}`;
+            el.style.opacity = '1';
+            el.style.transition = 'opacity 0.5s ease';
+        }, 300);
+    });
+}
+
+setInterval(rotateGameWinners, 4000);
 
 // HAMBURGER MENU
 const hamburger = document.getElementById('hamburger');
